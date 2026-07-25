@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete User</title>
+    <style>
+        body { font-family: Arial; background: #f0f2f5; margin: 0; }
+        .navbar { background: #333; color: white; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
+        .navbar a { color: white; text-decoration: none; margin-left: 15px; }
+        .navbar a:hover { color: #4CAF50; }
+        .container { padding: 30px; max-width: 500px; margin: 0 auto; }
+        .box { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); text-align: center; }
+        h1 { color: #f44336; }
+        p { color: #555; font-size: 16px; }
+        .username { font-weight: bold; color: #333; font-size: 18px; }
+        .btn-delete { display: inline-block; padding: 12px 30px; background: #f44336; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; text-decoration: none; margin-right: 10px; }
+        .btn-delete:hover { background: #d32f2f; }
+        .btn-cancel { display: inline-block; padding: 12px 30px; background: #666; color: white; border-radius: 5px; text-decoration: none; font-size: 16px; }
+        .btn-cancel:hover { background: #444; }
+    </style>
+</head>
+<body>
+<div class="navbar">
+    <span>User Management System</span>
+    <div>
+        <a href="{% url 'dashboard' %}">Dashboard</a>
+        <a href="{% url 'user_list' %}">Users</a>
+        <a href="{% url 'user_logout' %}">Logout</a>
+    </div>
+</div>
+<div class="container">
+    <div class="box">
+        <h1>⚠️ Delete User</h1>
+        <p>Are you sure you want to delete:</p>
+        <p class="username">{{ user.username }}</p>
+        <p style="color: red;">This action cannot be undone!</p>
+        <form method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn-delete">Yes, Delete</button>
+            <a href="{% url 'user_list' %}" class="btn-cancel">Cancel</a>
+        </form>
+    </div>
+</div>
+</body>
+</html>
