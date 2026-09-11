@@ -1,2 +1,2 @@
-# django-user-mangement
+# django-user-management
 A Django user management system with role-based access
