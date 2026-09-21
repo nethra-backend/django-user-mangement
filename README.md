@@ -1,4 +1,3 @@
-
 # Django User Management System
 
 A web-based user management system built with Django. The project provides user authentication, user registration, profile management, role-based access, and CRUD operations for managing users.
